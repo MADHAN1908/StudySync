@@ -108,7 +108,7 @@ a{
           <a href="{{ url_for('module_status',s_id=s_id,c_id=course[0],m_no=module[0],l_id=l_id)}}" target="_blank" class="module" id="module1">Module - {{module[0]}}  :  {{module[1]}}</a>
           <a class="status" style="color: red;">In Progress <span class="material-symbols-outlined">hourglass_top</span></a>
           {% elif module[0] == f_module and module[2] %}
-          <a href="{{ url_for('module_status',s_id=s_id,c_id=course[0],m_no=module[0],l_id=l_id)}}" target="_parent" class="module" id="module1">Module - {{module[0]}}  :  {{module[1]}}</a>
+          <a href="{{ url_for('module_status',s_id=s_id,c_id=course[0],m_no=module[0],l_id=l_id)}}"  class="module" id="module1">Module - {{module[0]}}  :  {{module[1]}}</a>
           <a class="status" style="color: blue;">Start <span class="material-symbols-outlined">play_circle</span></a>
           {% else %}
           <a href="{{ url_for('module_status',s_id=s_id,c_id=course[0],m_no=module[0],l_id=l_id)}}"  target="_parent" class="module" id="module1">Module - {{module[0]}}  :  {{module[1]}}</a>
