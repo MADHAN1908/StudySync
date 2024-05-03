@@ -556,7 +556,7 @@ def  module_status():
             status="In Progress"
             cur.execute('INSERT INTO enroll_course(student_id,course_id,module_no,status,enroll_date) values(?,?,?,?,?)',(s_id[0],c_id,m_no,status,date))
             db.commit()
-            return redirect(url_for('courseinfo',s_id=s_id,c_id=c_id,l_id=l_id))
+            return render_template('studentdashboard.html',sub=sub,l_id=l_id,c_id=c_id,s_id=s_id)
         else:
             pre_m_no=str(int(m_no)-1)
             cur.execute('select status from enroll_course where course_id= ? and student_id = ? and module_no = ?',(c_id,s_id,pre_m_no))
