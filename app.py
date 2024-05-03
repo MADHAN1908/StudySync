@@ -261,6 +261,11 @@ def home():
     add_module_count_trigger()
     confirm=request.args.get('confirm')
     return render_template('home.html',confirm=confirm)
+
+@app.route('/chatbot')
+def chatbot():
+    return render_template('chatbot.html')
+
 @app.route('/user_message' ,methods=['POST'])
 def user_message():
     name=request.form['name']
