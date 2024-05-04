@@ -21,11 +21,11 @@
        <div id="quiz" class="quiz">
         {% for question in questions %}
         <div class="question">
-        <p>{{ question[2] }}</p>
-        <input type="radio"  name="{{question[1]}}" value="A">{{ question[3] }}<br>
-      <input type="radio"  name="{{question[1]}}" value="B">{{ question[4] }}<br>
-      <input type="radio"  name="{{question[1]}}" value="C">{{ question[5] }}<br>
-      <input type="radio"  name="{{question[1]}}" value="D">{{ question[6] }}<br>
+        <p>{{loop.index}}.  {{ question[2] }}</p>
+      <input type="radio"  name="{{question[1]}}" value="A">   {{ question[3] }}<br>
+      <input type="radio"  name="{{question[1]}}" value="B">   {{ question[4] }}<br>
+      <input type="radio"  name="{{question[1]}}" value="C">   {{ question[5] }}<br>
+      <input type="radio"  name="{{question[1]}}" value="D">   {{ question[6] }}<br>
       <input type="hidden" name="ans" value="{{ question[7] }}"><br>
        </div>{% endfor %}
       </div>

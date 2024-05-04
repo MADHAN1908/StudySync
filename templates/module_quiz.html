@@ -17,18 +17,17 @@
       <div id="quiz" class="quiz">
         {% for question in questions %}
         <div class="question">
-        <p>{{ question[3] }}</p>
-        <input type="radio"  name="{{question[2]}}" value="A">{{ question[4] }}<br>
-      <input type="radio"  name="{{question[2]}}" value="B">{{ question[5] }}<br>
-      <input type="radio"  name="{{question[2]}}" value="C">{{ question[6] }}<br>
-      <input type="radio"  name="{{question[2]}}" value="D">{{ question[7] }}<br>
+        <p>{{loop.index}}.  {{ question[3] }}</p>
+      <input type="radio"  name="{{question[2]}}" value="A">   {{ question[4] }}<br>
+      <input type="radio"  name="{{question[2]}}" value="B">   {{ question[5] }}<br>
+      <input type="radio"  name="{{question[2]}}" value="C">   {{ question[6] }}<br>
+      <input type="radio"  name="{{question[2]}}" value="D">   {{ question[7] }}<br>
       <input type="hidden" name="ans" value="{{ question[8] }}"><br>
        </div>
        <div class="result"></div>
        <div class="answer">
         <h4> Answer : {{ question[9] }}</h4>
        </div>{% endfor %}
-        </div> 
         <a  class="submit" onclick="showAnswer()">Submit</a>
         <a  class="re-answer"  onclick="hideAnswer()">Re-Answer</a><a class="score"></a>
         <a href="{{ url_for('update_module_status', s_id=s_id , c_id=c_id , m_no=m_no,l_id=l_id )}}" class="next">Next</a>
