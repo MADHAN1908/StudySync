@@ -630,7 +630,6 @@ def  module_quiz():
     cur = db.cursor()
     cur.execute('select * from module_quiz where course_id=? and module_no =?',(c_id,m_no))
     questions=cur.fetchall()
-    print(questions)
     return render_template('module_quiz.html',s_id=s_id,c_id=c_id,m_no=m_no,questions=questions,l_id=l_id) 
 
 @app.route('/final_quiz')
@@ -766,10 +765,10 @@ def  messages():
     cur = db.cursor()
     cur.execute('select student_id,student_name,email_id from student WHERE student_id =?',(s_id,))  
     student=cur.fetchone()
-    cur.execute('select * from message WHERE sender_email = ?',(student[2],))  
-    cur.execute('SELECT m.*, c.course_name FROM message m LEFT JOIN course c ON m.receiver_email = c.course_id WHERE m.sender_email = ?', (student[2],))
+    # cur.execute('select * from message WHERE sender_email = ?',(student[2],))  
+    cur.execute('SELECT m.*, c.course_name FROM message m LEFT JOIN course c ON m.receiver_email = c.course_id WHERE m.sender_email = ?  ORDER BY m.date_time DESC', (student[2],))
     s_messages=cur.fetchall()
-    cur.execute('SELECT m.*, c.course_name FROM message m LEFT JOIN course c ON m.sender_email = c.course_id WHERE m.receiver_email = ?', (student[2],))
+    cur.execute('SELECT m.*, c.course_name FROM message m LEFT JOIN course c ON m.sender_email = c.course_id WHERE m.receiver_email = ? ORDER BY m.date_time DESC', (student[2],))
     r_messages=cur.fetchall()
     return render_template('messages.html',s_id=s_id,s_messages=s_messages,r_messages=r_messages)
 
@@ -1281,7 +1280,8 @@ def  addcoursequestion():
         date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         action=f" Added course question "
         cur.execute('insert into activity_log (user_type,user_id,user_name,date ,action) values(?,?,?,?,?)',(log[1],log[2],log[3],date,action))
-        db.commit()    
+        db.commit()
+        message=""    
     else:
         message=" Insert is failed. Please, Fill all boxes"    
     return redirect(url_for('coursequestion',id=id,l_id=log[0],message=message))
@@ -1482,6 +1482,7 @@ def  addcoursemodulequestion():
         action=f" Added course module question for course id {id} and module {m_no} "
         cur.execute('insert into activity_log (user_type,user_id,user_name,date ,action) values(?,?,?,?,?)',(log[1],log[2],log[3],date,action))
         db.commit()
+        message=""
     else:
         message=" Insert is failed. Please, Fill all boxes"  
     return redirect(url_for('coursemodulequestion',id=id,m_no=m_no,l_id=l_id,message=message))
