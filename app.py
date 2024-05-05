@@ -1201,7 +1201,7 @@ def  addcourse():
     action=f" Added course {title}"
     cur.execute('insert into activity_log (user_type,user_id,user_name,date ,action) values(?,?,?,?,?)',(log[1],log[2],log[3],date,action))
     db.commit()
-    cur.execute('select course_id,course_name,no_of_modules from course')
+    cur.execute('select course_id,course_name,no_of_modules,status from course')
     courses=cur.fetchall()
     # cur.close()
     return render_template('courselist.html',courses=courses,l_id=log[0])
