@@ -18,7 +18,7 @@
                </div>
                <div class="block-content">
                    <div class="span2" id="studentTableDiv">
-                    <form action="{{url_for('course_student',l_id=l_id)}}" method="get" id="selectcourse">
+                    <form action="{{url_for('course_student',l_id=l_id)}}" method="post" id="selectcourse">
                         <select id="course" name="course" onchange="submitForm()">
                             <option value="" disabled selected>Select Course</option>
                             <option value="0" {% if   c_id[0]== "0" %} selected {% endif %}> ALL Students</option>

@@ -22,35 +22,47 @@
             <div class="block-content">
                 <div class="span2">
                     <a href="{{url_for('coursemodule',id=id,l_id=l_id)}}" onclick="hidequestions()" class="btn-cancel"><span class="material-symbols-outlined">arrow_back</span> Back</a>
-                    
+                    <form action="{{url_for('delete_module_questions',l_id=l_id,id=id,m_no=m_no)}}" method="post">
                       <table cellpadding="0" cellspacing="0" border="5" class="table" id="example">
-                    
+                        <a href="#deleteConfirmation" id="delete" onclick="showDeleteConfirmation()" class="btn-danger" name=""><span class="material-symbols-outlined">delete</span></a>
                     <a href="#addquestion"  onclick="showaddquestion()" class="btn-edit" id=""><span class="material-symbols-outlined">add_circle</span> Add Question</a>
-                    
+                    <div id="deleteConfirmation" class="modal">
+                      <div class="modal-header">
+                        <button type="button" onclick="hideDeleteConfirmation()" class="close" >x</button>
+                          <h3 >Delete questions?</h3>
+                          </div>
+                      <div class="modal-body">
+                          <p>Are you sure you want to delete the module questions?</p>
+                          </div>
+                          <div class="modal-footer">
+                          <a class="btn-danger" onclick="hideDeleteConfirmation()"><span class="material-symbols-outlined">cancel</span> Cancel</a>
+                          <button class="btn-edit" onclick="deleteUser()"><span class="material-symbols-outlined">task_alt</span> Yes</button>
+                      </div>
+                  </div>
                         <thead>
                           <tr>
-                                <!-- <th></th> -->
+                                <th></th>
                                 <th>Question Number</th>
                                 <th>Question Text</th>
                                 <th>Answer</th>
-                                <th></th>
+                                <th>Edit</th>
                            </tr>
                         </thead>
                         <tbody>  
                           {% for question in questions %}                        
                             <tr>
-                                    <!-- <td width="30">
-                                    <input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="">
-                                    </td> -->
-                                    <td>{{ question[0] }}</td>
-                                    <td>{{ question[1] }}</td>
-                                    <td>{{ question[2] }}</td>
+                                    <td width="30">
+                                    <input id="optionsCheckbox" class="uniform_on" name="selector[]" type="checkbox" value="{{question[0]}}">
+                                    </td>
+                                    <td width="100"><center>{{loop.index}}</center></td>
+                                    <td width="700">{{question[1]}}</td>
+                                    <td><center>{{question[2]}}</center></td>
                                     <td width="30"><a href="{{url_for('editcoursemodulequestion',id=id,m_no=m_no,q_no=question[0],l_id=l_id)}}"  class="btn-successs"><span class="material-symbols-outlined">edit</span></a></td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
-                  
+                  </form>
                 </div>
             </div>
         </div>
