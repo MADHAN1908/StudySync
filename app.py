@@ -194,19 +194,19 @@ def create_table():
     ''')
     db.commit()
 
-def add_module_count_trigger():
-    db = get_db()
-    cursor = db.cursor()
+# def add_module_count_trigger():
+#     db = get_db()
+#     cursor = db.cursor()
 
-    cursor.execute('''
-    CREATE TRIGGER IF NOT EXISTS add_module_count
-    AFTER INSERT ON course_module
-    FOR EACH ROW
-    BEGIN
-        UPDATE course SET no_of_modules = no_of_modules + 1 WHERE course_id = NEW.course_id;
-    END;
-    ''')
-    db.commit()
+#     cursor.execute('''
+#     CREATE TRIGGER IF NOT EXISTS add_module_count
+#     AFTER INSERT ON course_module
+#     FOR EACH ROW
+#     BEGIN
+#         UPDATE course SET no_of_modules = no_of_modules + 1 WHERE course_id = NEW.course_id;
+#     END;
+#     ''')
+#     db.commit()
     # db.close()
 
 def getlog(l_id):
@@ -241,6 +241,14 @@ def get_next_module_question_no(course_id,module_no):
     max_question_no = cursor.fetchone()[0]
     return (max_question_no + 1) if max_question_no is not None else 1
 
+def update_module_count(course_id):
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute('SELECT count(*) FROM course_module WHERE course_id = ?;', (course_id,))
+    module_count = cursor.fetchone()[0]
+    cursor.execute('update course set no_of_modules= ? WHERE course_id = ?;', (module_count,course_id))
+    db.commit()
+   
 # app.secret_key = os.urandom(24)
 app.config['UPLOAD_FOLDER'] = 'static/UPLOAD_FOLDER/'
 
@@ -258,7 +266,7 @@ def cmc():
 @app.route('/')
 def home():
     create_table()
-    add_module_count_trigger()
+    # add_module_count_trigger()
     confirm=request.args.get('confirm')
     return render_template('home.html',confirm=confirm)
 
@@ -956,10 +964,10 @@ def  studentlist():
     # cur.close()
     return render_template('studentlist.html',students=students,courses=courses,c_id=c_id,l_id=l_id)
 
-@app.route('/course_student')
+@app.route('/course_student',methods=["POST"])
 def  course_student():
     l_id=request.args.get('l_id')
-    c_id=request.args.get('course')
+    c_id=request.form.get('course')
     m_no=0
     print(c_id)
     db= get_db()
@@ -978,11 +986,11 @@ def  course_student():
     # cur.close()
     return render_template('studentlist.html',students=students,courses=courses,c_id=course_id,l_id=l_id)
 
-@app.route('/deletestudents',methods=['POST'])
+@app.route('/deletestudents',methods=["POST"])
 def  deletestudents():
     l_id=request.args.get('l_id')
-    c_id=0
     log=getlog(l_id)
+    print(l_id,log)
     date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     selected_ids=request.form.getlist('selector')
     db= get_db()
@@ -1259,6 +1267,33 @@ def  coursequestion():
     cur.execute('select question_no,question,answer from quiz where course_id = ?',(id,))
     questions=cur.fetchall()
     return render_template('addcoursequestion.html',questions=questions,id=id,l_id=l_id,message=message)
+
+@app.route('/delete_questions',methods=["POST"])
+def  delete_questions():
+    l_id=request.args.get('l_id')
+    id=request.args.get('id')
+    selected_ids=request.form.getlist('selector[]')
+    log=getlog(l_id)
+    print(l_id,log,selected_ids)
+    date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    db= get_db()
+    cur = db.cursor()
+    cur.execute('select course_name from course where  course_id = ?',(id,))
+    c_name =cur.fetchone()[0]
+    message=""
+    for question_no in selected_ids :
+        cur.execute('delete from quiz where question_no = ? and course_id = ?',(question_no,id))
+        db.commit()
+        action=f"Deleted {c_name} course question no : {question_no}."
+        cur.execute('insert into activity_log (user_type,user_id,user_name,date ,action) values(?,?,?,?,?)',(log[1],log[2],log[3],date,action))
+        db.commit()
+        message="questions deleted successfully"
+    
+    # cur.close()
+    return redirect(url_for('coursequestion',id=id,l_id=log[0],message=message))
+
+
 @app.route('/addcoursequestion',methods=['POST'])
 def  addcoursequestion():
     l_id=request.args.get('l_id')
@@ -1346,8 +1381,40 @@ def  coursemodule():
     courses=cur.fetchall()
     cur.execute('select course_id ,module_no,title,file_name from course_module where course_id= ?',(id,))
     modules=cur.fetchall()
+    cur.execute('select module_no from course_module where course_id= ? ORDER BY module_no DESC',(id,))
+    l_module=cur.fetchone()
     # cur.close()
-    return render_template('coursemodule.html',modules=modules,courses=courses,id=course_id,l_id=l_id)
+    return render_template('coursemodule.html',modules=modules,courses=courses,id=course_id,l_id=l_id,l_module=l_module)
+
+@app.route('/delete_course_module',methods=["POST"])
+def  delete_course_module():
+    l_id=request.args.get('l_id')
+    id=request.args.get('id')
+    selected_ids=request.form.getlist('selector[]')
+    log=getlog(l_id)
+    print(l_id,log,selected_ids)
+    date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    db= get_db()
+    cur = db.cursor()
+    cur.execute('select course_name from course where  course_id = ?',(id,))
+    c_name =cur.fetchone()[0]
+    
+    for module_no in selected_ids :
+        cur.execute('select file_path from course_module where course_id= ?  and module_no =?',(id,module_no))
+        old_file_path=cur.fetchone()
+        cur.execute('delete from course_module where  course_id = ? and module_no = ?',(id,module_no))
+        db.commit()
+        if os.path.exists(old_file_path[0]):
+            os.remove(old_file_path[0])
+        action=f"Deleted {c_name} course module no : {module_no}."
+        cur.execute('insert into activity_log (user_type,user_id,user_name,date ,action) values(?,?,?,?,?)',(log[1],log[2],log[3],date,action))
+        db.commit()
+        update_module_count(id)
+    
+    # cur.close()
+    return redirect(url_for('coursemodule',id=id,l_id=l_id))
+
 
 @app.route('/selectcourse',methods=["POST"])
 def  selectcourse():
@@ -1378,6 +1445,7 @@ def  addcoursemodule():
        action=f" Added course module for course id {id} "
        cur.execute('insert into activity_log (user_type,user_id,user_name,date ,action) values(?,?,?,?,?)',(log[1],log[2],log[3],date,action))
        db.commit()
+       update_module_count(id)
        message= "add successfully"
     else :
         message= "insert has been stoped because of pdf name has been already exits"
@@ -1459,6 +1527,33 @@ def  coursemodulequestion():
     questions=cur.fetchall()
     # cur.close()
     return render_template('coursemodulequestion.html',questions=questions,id=id,m_no=m_no,l_id=l_id,message=message)
+
+@app.route('/delete_module_questions',methods=["POST"])
+def  delete_module_questions():
+    l_id=request.args.get('l_id')
+    id=request.args.get('id')
+    m_no=request.args.get('m_no')
+    selected_ids=request.form.getlist('selector[]')
+    log=getlog(l_id)
+    print(l_id,log,selected_ids)
+    date=datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    db= get_db()
+    cur = db.cursor()
+    cur.execute('select course_name from course where  course_id = ?',(id,))
+    c_name =cur.fetchone()[0]
+    message=""
+    for question_no in selected_ids :
+        cur.execute('delete from module_quiz where question_no = ? and course_id = ? and module_no = ?',(question_no,id,m_no))
+        db.commit()
+        action=f"Deleted {c_name} course module {m_no} question no : {question_no}."
+        cur.execute('insert into activity_log (user_type,user_id,user_name,date ,action) values(?,?,?,?,?)',(log[1],log[2],log[3],date,action))
+        db.commit()
+        message="questions deleted successfully"
+    
+    # cur.close()
+    return redirect(url_for('coursemodulequestion',id=id,m_no=m_no,l_id=l_id,message=message))
+
 @app.route('/addcoursemodulequestion',methods=["POST"])
 def  addcoursemodulequestion():
     l_id=request.args.get('l_id')
