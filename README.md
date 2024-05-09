@@ -22,3 +22,10 @@
 ### Backend:
 - **Python Flask**: Used as the web framework for building the backend logic and handling HTTP requests.
 - **SQLITE3**: Used as the relational database management system for storing users data, course and course content information  and assessment details.
+
+## How to Run Locally
+1. Clone this repository to your local machine.
+2. Install Python Flask and matplotlib if not already installed.
+3. Configure the Flask application to connect to the Sqlite3 database.
+4. Run the Flask application using the command `python app.py`.
+5. Access the website through your web browser at `http://localhost:5000`.
