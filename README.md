@@ -29,3 +29,8 @@
 3. Configure the Flask application to connect to the Sqlite3 database.
 4. Run the Flask application using the command `python app.py`.
 5. Access the website through your web browser at `http://localhost:5000`.
+
+## Admin Account Credentials
+To access the admin dashboard and manage the application, use the following credentials:
+- **Username**: MADHAN
+- **Password**: MK1234
