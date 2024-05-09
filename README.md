@@ -12,3 +12,13 @@
 -	**Progress Tracking**: Track student progress, completion status, and grades.
 -	**Responsive Design**: User-friendly interface accessible on multiple devices.
 
+## Technologies Used
+
+### Frontend:
+- **HTML**: Used for structuring the web pages and displaying content.
+- **CSS**: Used for styling the web pages and enhancing the visual appearance.
+- **JavaScript**: Used for client-side interactivity and dynamic content.
+
+### Backend:
+- **Python Flask**: Used as the web framework for building the backend logic and handling HTTP requests.
+- **SQLITE3**: Used as the relational database management system for storing users data, course and course content information  and assessment details.
