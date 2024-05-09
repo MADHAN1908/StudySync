@@ -34,3 +34,11 @@
 To access the admin dashboard and manage the application, use the following credentials:
 - **Username**: MADHAN
 - **Password**: MK1234
+
+
+## Contributing
+Contributions are welcome! If you have any suggestions, feature requests, or bug reports, please open an issue or submit a pull request.
+1. Gowtham A  - Front-End
+2. MadhanKumar P - Back-End
+3. Arun Kumar C - Readme file and voice over
+4. Jeevanatham M - Cloud integration
