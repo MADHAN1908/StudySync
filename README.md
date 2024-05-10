@@ -42,3 +42,17 @@ Contributions are welcome! If you have any suggestions, feature requests, or bug
 2. MadhanKumar P - Back-End
 3. Arun Kumar C - Readme file and voice over
 4. Jeevanatham M - Cloud integration
+
+
+## Azure Home Page
+![cloud_home](https://github.com/MADHAN1908/StudySync/assets/162422250/87a35098-d46b-46b7-a280-27f45685e884)
+## Resourse Group
+![resoursegroup](https://github.com/MADHAN1908/StudySync/assets/158132614/d21f2caa-26ca-4180-89ab-47a415c9bcfd)
+## App Service
+![app_servies](https://github.com/MADHAN1908/StudySync/assets/158132614/ec9b71f7-113c-420f-8356-40a9a99d59ce)
+## Language service
+![language](https://github.com/MADHAN1908/StudySync/assets/158132614/c5af8681-a190-4ff6-a5df-2d73c72eed2a)
+## Monitor Service
+![monitor](https://github.com/MADHAN1908/StudySync/assets/158132614/31a2657c-bc93-42d9-8764-a75dc63a8877)
+## AI Bot 
+![bot](https://github.com/MADHAN1908/StudySync/assets/158132614/1e19c0ba-cdb3-4833-8b8a-c2b4888ea90e)
