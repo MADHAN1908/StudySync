@@ -56,3 +56,7 @@ Contributions are welcome! If you have any suggestions, feature requests, or bug
 ![monitor](https://github.com/MADHAN1908/StudySync/assets/158132614/31a2657c-bc93-42d9-8764-a75dc63a8877)
 ## AI Bot 
 ![bot](https://github.com/MADHAN1908/StudySync/assets/158132614/1e19c0ba-cdb3-4833-8b8a-c2b4888ea90e)
+
+![home_page](https://github.com/MADHAN1908/StudySync/assets/158132614/a0a70d94-d0b6-49cf-975c-93a48f2d458d)
+![login](https://github.com/MADHAN1908/StudySync/assets/158132614/6c440f04-7afd-4b60-b661-3c5254a04f24)
+![register](https://github.com/MADHAN1908/StudySync/assets/158132614/a5e66cd7-4a81-49db-beeb-58d97670f706)
