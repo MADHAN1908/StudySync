@@ -57,6 +57,31 @@ Contributions are welcome! If you have any suggestions, feature requests, or bug
 ## AI Bot 
 ![bot](https://github.com/MADHAN1908/StudySync/assets/158132614/1e19c0ba-cdb3-4833-8b8a-c2b4888ea90e)
 
+## Home Page
 ![home_page](https://github.com/MADHAN1908/StudySync/assets/158132614/a0a70d94-d0b6-49cf-975c-93a48f2d458d)
+## Login Page
 ![login](https://github.com/MADHAN1908/StudySync/assets/158132614/6c440f04-7afd-4b60-b661-3c5254a04f24)
+## Registration Page
 ![register](https://github.com/MADHAN1908/StudySync/assets/158132614/a5e66cd7-4a81-49db-beeb-58d97670f706)
+## Student Profile Page
+![student_profile](https://github.com/MADHAN1908/StudySync/assets/158132614/0ddda49a-b6cf-440e-a149-fc60eef98e87)
+## Course Page 
+![course](https://github.com/MADHAN1908/StudySync/assets/158132614/e83674b0-465c-4941-ab9c-0fda5589cce5)
+## Enroll Course Page
+![enroll_course](https://github.com/MADHAN1908/StudySync/assets/158132614/01b2198b-4d1f-4328-87be-1d1b3befbc34)
+## My Learning Page 
+![my_learning](https://github.com/MADHAN1908/StudySync/assets/158132614/a0f0704d-17cf-4292-8789-c10cce0855ef)
+## Course Information Page
+![course_info](https://github.com/MADHAN1908/StudySync/assets/158132614/f1821cd7-43b5-4e5d-983f-e34474d65ef2)
+## Module Material view Page
+![module_view](https://github.com/MADHAN1908/StudySync/assets/158132614/b5f6edde-9631-43a5-a990-fe211be53fa2)
+## Module Quiz Page
+![module_quiz](https://github.com/MADHAN1908/StudySync/assets/158132614/5c092bc0-dc04-4125-86c6-9a543172024f)
+## Final Quiz Page
+![final_quiz](https://github.com/MADHAN1908/StudySync/assets/158132614/8f60007f-f718-4374-a0f2-ffb7b1a18524)
+## Send Message Page
+![student_sent_message](https://github.com/MADHAN1908/StudySync/assets/158132614/9be2d99d-c63b-4661-bd70-39ff1a95b349)
+## View Message Page
+![message](https://github.com/MADHAN1908/StudySync/assets/158132614/66702d98-0336-4513-9dfd-f174fb5ddc11)
+## View Score Detials Page
+![score_details](https://github.com/MADHAN1908/StudySync/assets/158132614/37db9c67-3703-46a6-9537-259034016e8d)
