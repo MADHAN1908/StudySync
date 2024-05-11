@@ -104,9 +104,9 @@ Contributions are welcome! If you have any suggestions, feature requests, or bug
 ## Questions List Page
 ![QUESTION_LIST](https://github.com/MADHAN1908/StudySync/assets/158132614/8334f7c4-7a0f-45de-a912-050f818d89d2)
 ## Add Question Page
-![Screenshot (53)](https://github.com/MADHAN1908/StudySync/assets/158132614/0575f5a8-210f-4308-b6eb-9c835cd733e1)
-## Edit Question Page
 ![Screenshot (54)](https://github.com/MADHAN1908/StudySync/assets/158132614/711e5c33-f2a5-406a-90f9-768d7f7ee7db)
+## Edit Question Page
+![Screenshot (53)](https://github.com/MADHAN1908/StudySync/assets/158132614/0575f5a8-210f-4308-b6eb-9c835cd733e1)
 ## Course Module List Page
 ![module_list](https://github.com/MADHAN1908/StudySync/assets/158132614/bf23686a-d7a8-4867-a350-f2c23a6870b8)
 ## activity Log Page
