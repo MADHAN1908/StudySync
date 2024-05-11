@@ -85,3 +85,38 @@ Contributions are welcome! If you have any suggestions, feature requests, or bug
 ![message](https://github.com/MADHAN1908/StudySync/assets/158132614/66702d98-0336-4513-9dfd-f174fb5ddc11)
 ## View Score Detials Page
 ![score_details](https://github.com/MADHAN1908/StudySync/assets/158132614/37db9c67-3703-46a6-9537-259034016e8d)
+
+## Instructor Page
+![instructor_page](https://github.com/MADHAN1908/StudySync/assets/158132614/709e536f-8319-449d-aa1a-b5c00aa7049d)
+## Admin Login Page
+![adminlogin](https://github.com/MADHAN1908/StudySync/assets/158132614/10552d06-a7d1-4691-b7bd-cc5b16da07f5)
+
+## Admin Dashboard
+![admin_dashboard](https://github.com/MADHAN1908/StudySync/assets/158132614/65110dce-68d7-4775-b2f3-e48d7534bfe9)
+## Student List Page
+![studentlist](https://github.com/MADHAN1908/StudySync/assets/158132614/c46420f8-64ab-42fe-89a3-42e047826bea)
+## Instructor List Page
+![instructor_list](https://github.com/MADHAN1908/StudySync/assets/158132614/17278df2-7bea-403c-91a9-a17c9af8dfd4)
+## Admin List Page
+![adminusers](https://github.com/MADHAN1908/StudySync/assets/158132614/edf794ef-a541-42d1-8c9e-94ee4e02dada)
+## Coures List Page
+![course_list](https://github.com/MADHAN1908/StudySync/assets/158132614/125b8cc1-2894-4fb0-8956-b456a9fe956d)
+## Questions List Page
+![QUESTION_LIST](https://github.com/MADHAN1908/StudySync/assets/158132614/8334f7c4-7a0f-45de-a912-050f818d89d2)
+## Add Question Page
+![Screenshot (53)](https://github.com/MADHAN1908/StudySync/assets/158132614/0575f5a8-210f-4308-b6eb-9c835cd733e1)
+## Edit Question Page
+![Screenshot (54)](https://github.com/MADHAN1908/StudySync/assets/158132614/711e5c33-f2a5-406a-90f9-768d7f7ee7db)
+## Course Module List Page
+![module_list](https://github.com/MADHAN1908/StudySync/assets/158132614/bf23686a-d7a8-4867-a350-f2c23a6870b8)
+## activity Log Page
+![activity_log](https://github.com/MADHAN1908/StudySync/assets/158132614/11ec2896-bb08-4790-9f2e-a948c0cebf17)
+## Student Log Page
+![student_log](https://github.com/MADHAN1908/StudySync/assets/158132614/1126b2da-cf4a-4ba1-8c1f-20ca0674948f)
+## User Log Page
+![user_log](https://github.com/MADHAN1908/StudySync/assets/158132614/c3e5b42a-4d7a-4d01-ab32-31ad35bfb8e1)
+
+## Admin Message Page
+![Admin_message](https://github.com/MADHAN1908/StudySync/assets/158132614/e3c54b18-71f9-451d-abde-ec6621832c68)
+## View Score Details Page
+![adminscore](https://github.com/MADHAN1908/StudySync/assets/158132614/c9a9d805-0c04-48d7-bec6-77660405bd85)
